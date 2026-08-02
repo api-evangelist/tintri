@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: derived
+source: https://tintri.github.io/tintri-rest-api/index.html
+description: >-
+  Cross-cutting standards conformance for the Tintri VMstore REST API (v310),
+  derived from the published REST reference and authentication model. Tintri uses
+  a session-cookie auth model and a proprietary JSON error object rather than the
+  common OAuth/OIDC and RFC 9457 patterns.
+standards:
+- id: rest-json
+  conforms: true
+  evidence: HTTP+JSON resource API namespaced under /api/v310
+- id: oauth2
+  conforms: false
+  evidence: session-cookie (JSESSIONID) auth, no oauth2 securityScheme
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors return a proprietary JSON Error object, not application/problem+json
+- id: rfc8594-sunset
+  conforms: false
+- id: json-api
+  conforms: false
+- id: pagination
+  conforms: true
+  evidence: collections return Page objects with limit/offset and totals
+- id: idempotency
+  conforms: false
+  evidence: no idempotency-key mechanism documented

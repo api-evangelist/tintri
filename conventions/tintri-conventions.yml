@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: searched
+source: https://tintri.github.io/tintri-rest-api/index.html
+description: >-
+  Cross-cutting request/response conventions for the Tintri VMstore REST API
+  (v310), captured from the published REST API reference and code examples.
+base_url: https://{vmstore}/api/v310
+api_style: REST over HTTPS, JSON request and response bodies
+authentication:
+  style: session-cookie (JSESSIONID) established via POST /api/v310/session/login
+  ref: authentication/tintri-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    The Tintri REST API does not document an idempotency-key mechanism. Object
+    creation (e.g. snapshots) is not idempotent; callers must guard retries.
+pagination:
+  style: paged
+  request: >-
+    Collection GETs accept a filter spec (typeId *FilterSpec) with limit and
+    offset/next fields; large result sets are returned as Page objects.
+  response_fields: [items, absoluteTotal, filteredTotal, page, next, prev, overflow]
+filtering:
+  style: filter-spec
+  notes: >-
+    Queryable collections accept a strongly-typed *FilterSpec (VirtualMachineFilterSpec,
+    SnapshotFilterSpec, AlertFilterSpec, ApplianceFilterSpec, VirtualDiskFilterSpec,
+    ServiceGroupFilterSpec, TaskFilterSpec, ...) controlling fields, sort, and range.
+metadata:
+  supported: true
+  notes: Objects carry a typeId discriminator and uuid identity; tags can be applied to VMs.
+request_tracing:
+  notes: The API exposes an asynchronous Task resource; long-running operations return a Task to poll.
+versioning:
+  scheme: uri-path
+  current: v310
+  release: v310.91
+  compat: v310.91 maps to TXOS 4.5 and Tintri Global Center 4.1+
+  ref: lifecycle/tintri-lifecycle.yml
+error_envelope:
+  format: json
+  notes: >-
+    Errors return a JSON Error object (not RFC 9457 problem+json) with a code
+    and message; HTTP status codes convey the class of failure. See errors ref.
+rate_limits:
+  documented: false
+  notes: No published rate-limit signaling; the API is per-appliance/on-premises.
+webhooks:
+  supported: false
+  notes: No webhook/event push surface; alerts are polled via the Alert resource.
+other_conventions:
+- All resources are namespaced under /api/v310/.
+- typeId fields fully qualify DTO classes (com.tintri.api.rest.v310.dto.*).

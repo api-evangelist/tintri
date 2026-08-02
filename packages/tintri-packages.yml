@@ -1,0 +1,54 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/Tintri
+description: >-
+  First-party Tintri automation libraries and drivers for the Tintri VMstore
+  REST API, published in the public Tintri GitHub organization (github.com/Tintri).
+  The Python SDK (PySDK) is distributed as a downloadable wheel from GitHub
+  rather than PyPI (no `tintri` project exists on PyPI as of this fetch). The
+  PowerShell Automation Toolkit is Tintri's supported PowerShell cmdlet library.
+  Kubernetes CSI and OpenStack Cinder drivers integrate VMstore as backing
+  storage. All entries verified first-party via the Tintri GitHub org.
+packages:
+- language: python
+  registry: github
+  name: Tintri PySDK
+  url: https://github.com/Tintri/tintri-python-sdk
+  source: https://github.com/Tintri/tintri-python-sdk
+  docs: https://tintri.github.io/tintri-python-sdk/index.html
+  install: pip install Tintri_PySDK-1.0-py3-none-any.whl
+  official: true
+  notes: >-
+    Python SDK for Tintri REST APIs (Python 2.7 and 3.6). Distributed as a wheel
+    from the GitHub repository; author pysdk@tintri.com. Not published to PyPI.
+- language: powershell
+  registry: github
+  name: Tintri Automation Toolkit (PowerShell)
+  url: https://github.com/Tintri/tintri-powershell-examples
+  source: https://github.com/Tintri/tintri-powershell-examples
+  install: Import-Module TintriPSToolkit
+  official: true
+  notes: >-
+    PowerShell cmdlet toolkit for automating Tintri VMstore and Tintri Global
+    Center; examples repository maintained by Tintri.
+- language: yaml
+  registry: github
+  name: Tintri Ansible Playbooks
+  url: https://github.com/Tintri/tintri-ansible-playbooks
+  source: https://github.com/Tintri/tintri-ansible-playbooks
+  official: true
+  notes: Ansible playbooks for managing Tintri storage servers.
+- language: go
+  registry: github
+  name: Tintri VMstore CSI Driver
+  url: https://github.com/Tintri/vmstore-csi-driver
+  source: https://github.com/Tintri/vmstore-csi-driver
+  official: true
+  notes: Kubernetes Container Storage Interface (CSI) driver for VMstore.
+- language: python
+  registry: github
+  name: Tintri VMstore Cinder Driver
+  url: https://github.com/Tintri/vmstore-cinder-driver
+  source: https://github.com/Tintri/vmstore-cinder-driver
+  official: true
+  notes: OpenStack Cinder volume driver for VMstore.

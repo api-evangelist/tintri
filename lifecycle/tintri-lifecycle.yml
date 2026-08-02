@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/Tintri/tintri-rest-api
+description: >-
+  Versioning and lifecycle posture for the Tintri VMstore REST API, derived from
+  the published REST API reference and its release-mapping notes. The API version
+  is pinned in the URI path (v310) and released as dotted point versions
+  (v310.91) that map explicitly to TXOS (VMstore OS) and Tintri Global Center
+  releases. No public status page or formal deprecation-policy page was found;
+  the API is an on-premises appliance API whose availability tracks the customer
+  appliance, not a hosted SLA.
+versioning:
+  scheme: uri-path
+  current: v310
+  release: v310.91
+  release_history:
+  - version: v310.91
+    maps_to: TXOS 4.5 and Tintri Global Center 4.1 and above
+  - version: v310.64
+    maps_to: TXOS 4.3.2.x and Tintri Global Center 3.5.0.x and above
+  docs: https://tintri.github.io/tintri-rest-api/index.html
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy or RFC 8594 Sunset/Deprecation header support found.
+sla:
+  url: null
+  notes: On-premises appliance API; no hosted uptime SLA.
+status_page: null
+deprecated_operations: []

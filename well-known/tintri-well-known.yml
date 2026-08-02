@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+host: https://tintri.com
+description: >-
+  Probe of the /.well-known/ discovery surface on the Tintri corporate host.
+  None of the standard discovery documents are published (all return 404). The
+  Tintri VMstore REST API is an on-appliance API served per-VMstore/TGC instance,
+  not from a central public host, so it exposes no central well-known catalog.
+documents:
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404

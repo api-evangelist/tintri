@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: https://tintri.github.io/tintri-rest-api/index.html
+description: >-
+  Candidate Model Context Protocol server for the Tintri VMstore REST API. Tintri
+  publishes no official hosted/remote MCP server; this is a derived candidate tool
+  list mapped from the documented v310 REST resources so an agent could manage
+  VMstore storage. Tools would proxy the session-authenticated REST API on a
+  target appliance. Not an official Tintri product.
+server:
+  name: tintri
+  transport: stdio
+  url: null
+tools:
+- name: login
+  description: Authenticate and open a session against a VMstore/TGC appliance.
+  source_operation: /api/v310/session/login
+- name: logout
+  description: Close the current appliance session.
+  source_operation: /api/v310/session/logout
+- name: list_vms
+  description: List virtual machines with an optional VirtualMachineFilterSpec.
+  source_operation: /api/v310/vm
+- name: get_vm_qos
+  description: Get or set per-VM QoS configuration.
+  source_operation: /api/v310/vm/qosConfig
+- name: list_snapshots
+  description: List snapshots with an optional SnapshotFilterSpec.
+  source_operation: /api/v310/snapshot
+- name: create_snapshot
+  description: Create a snapshot of a VM or its virtual disks.
+  source_operation: /api/v310/snapshot
+- name: list_datastores
+  description: List datastores and default replication info.
+  source_operation: /api/v310/datastore
+- name: list_alerts
+  description: List appliance alerts with an optional AlertFilterSpec.
+  source_operation: /api/v310/alert
+- name: list_service_groups
+  description: List service groups (policy groupings of VMs).
+  source_operation: /api/v310/servicegroup
+- name: get_appliance
+  description: Get appliance inventory and status.
+  source_operation: /api/v310/appliance

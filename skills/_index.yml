@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: generated
+source: https://tintri.github.io/tintri-rest-api/index.html
+description: >-
+  Packaged Agent Skills for the Tintri VMstore REST API (v310). Each skill is
+  grounded in real documented v310 endpoints (no OpenAPI spec is published, so
+  operations are cited by their documented HTTP method + path).
+skills:
+- file: tintri-snapshot-vm.md
+  name: Snapshot a VM on Tintri VMstore
+  api: Tintri VMstore REST API v310
+  operations:
+  - POST /api/v310/session/login
+  - GET /api/v310/vm
+  - POST /api/v310/snapshot
+  - GET /api/v310/session/logout
+- file: tintri-monitor-alerts.md
+  name: Monitor Tintri VMstore alerts and VM performance
+  api: Tintri VMstore REST API v310
+  operations:
+  - POST /api/v310/session/login
+  - GET /api/v310/alert
+  - GET /api/v310/vm
+  - GET /api/v310/session/logout

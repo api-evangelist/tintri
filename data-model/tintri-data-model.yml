@@ -1,0 +1,74 @@
+generated: '2026-07-21'
+method: derived
+source: https://github.com/Tintri/tintri-rest-api (v310 DTO reference)
+description: >-
+  Entity-relationship model of the Tintri VMstore REST API (v310), derived from
+  the published DTO domain objects and their filter specs in the REST API
+  reference. Tintri Global Center (TGC) federates many VMstore appliances; each
+  appliance hosts virtual machines and their virtual disks, protects them with
+  snapshots governed by service-group policies, and replicates them over
+  replication links. Relationships are inferred from the DTO graph, not from a
+  machine-readable OpenAPI spec (none is published).
+entities:
+- name: Appliance
+  path: /api/v310/appliance
+  description: A VMstore appliance (or the TGC managing them).
+- name: VirtualMachine
+  path: /api/v310/vm
+  aliases: [Vm]
+  description: A virtualization-aware VM object with per-VM stats, QoS, and tags.
+- name: VirtualDisk
+  path: /api/v310/virtualDisk
+  description: A vDisk belonging to a virtual machine.
+- name: Datastore
+  path: /api/v310/datastore
+  description: The VMstore datastore, including default replication info.
+- name: Snapshot
+  path: /api/v310/snapshot
+  description: A point-in-time snapshot of a VM or its disks.
+- name: ServiceGroup
+  path: /api/v310/servicegroup
+  description: A policy grouping of VMs for snapshot/replication/QoS management.
+- name: ReplLink
+  path: /api/v310/datastore/default/replicationInfo
+  description: A replication link between VMstore appliances.
+- name: Alert
+  path: /api/v310/alert
+  description: An appliance alert/notification.
+- name: Task
+  path: /api/v310/task
+  description: An asynchronous long-running operation to poll.
+- name: License
+  path: /api/v310/license
+  description: Appliance licensing state.
+- name: UserRole
+  description: RBAC role assigned to an authenticated user.
+relationships:
+- from: Appliance
+  to: VirtualMachine
+  type: has_many
+  via: appliance
+- from: VirtualMachine
+  to: VirtualDisk
+  type: has_many
+  via: vmUuid
+- from: VirtualMachine
+  to: Snapshot
+  type: has_many
+  via: vmUuid
+- from: ServiceGroup
+  to: VirtualMachine
+  type: has_many
+  via: members
+- from: Datastore
+  to: ReplLink
+  type: has_many
+  via: replicationInfo
+- from: Appliance
+  to: Alert
+  type: has_many
+  via: appliance
+- from: VirtualMachine
+  to: Task
+  type: has_many
+  via: uuid

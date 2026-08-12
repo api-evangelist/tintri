@@ -70,6 +70,9 @@ apis:
   - type: SourceCode
     url: https://github.com/Tintri/tintri-rest-api
 common:
+- type: License
+  name: MIT
+  url: https://github.com/Tintri/tintri-rest-api/blob/master/LICENSE
 - type: DomainSecurity
   url: security/tintri-domain-security.yml
 - type: Website

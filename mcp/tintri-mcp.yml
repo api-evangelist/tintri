@@ -2,12 +2,10 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: https://tintri.github.io/tintri-rest-api/index.html
-description: >-
-  Candidate Model Context Protocol server for the Tintri VMstore REST API. Tintri
-  publishes no official hosted/remote MCP server; this is a derived candidate tool
-  list mapped from the documented v310 REST resources so an agent could manage
-  VMstore storage. Tools would proxy the session-authenticated REST API on a
-  target appliance. Not an official Tintri product.
+description: Candidate Model Context Protocol server for the Tintri VMstore REST API. Tintri publishes
+  no official hosted/remote MCP server; this is a derived candidate tool list mapped from the documented
+  v310 REST resources so an agent could manage VMstore storage. Tools would proxy the session-authenticated
+  REST API on a target appliance. Not an official Tintri product.
 server:
   name: tintri
   transport: stdio
@@ -43,3 +41,9 @@ tools:
 - name: get_appliance
   description: Get appliance inventory and status.
   source_operation: /api/v310/appliance
+deployment:
+  mode: none
+  verified: derived
+  tools: 10
+  checked: '2026-08-12'
+  source: catalog MCP census

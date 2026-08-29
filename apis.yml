@@ -18,6 +18,19 @@ x-backed-by:
 - insight-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -70,6 +83,8 @@ apis:
   - type: SourceCode
     url: https://github.com/Tintri/tintri-rest-api
 common:
+- type: IssueTracker
+  url: https://github.com/Tintri/tintri-rest-api/issues
 - type: License
   name: MIT
   url: https://github.com/Tintri/tintri-rest-api/blob/master/LICENSE

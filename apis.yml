@@ -46,7 +46,7 @@ accessModel:
 image: https://tintri.github.io/tintri-rest-api/TintriLogo-300.png
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-10-06'
 tags:
 - Company
 - Storage
@@ -83,6 +83,8 @@ apis:
   - type: SourceCode
     url: https://github.com/Tintri/tintri-rest-api
 common:
+- url: https://tintri.com/feed/
+  type: BlogRSS
 - type: IssueTracker
   url: https://github.com/Tintri/tintri-rest-api/issues
 - type: License
